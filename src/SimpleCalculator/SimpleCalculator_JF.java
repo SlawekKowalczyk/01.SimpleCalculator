@@ -1,8 +1,11 @@
 package SimpleCalculator;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import javax.swing.JOptionPane;
 
 public class SimpleCalculator_JF extends javax.swing.JFrame {
+
     public SimpleCalculator_JF() {
         initComponents();
     }
@@ -29,10 +32,10 @@ public class SimpleCalculator_JF extends javax.swing.JFrame {
         Text_2 = new javax.swing.JLabel();
         Text_3 = new javax.swing.JLabel();
         Text_4 = new javax.swing.JLabel();
-        WynDodawania = new javax.swing.JLabel();
-        WynOdejmowania = new javax.swing.JLabel();
-        WynMnozenia = new javax.swing.JLabel();
-        WynDzielenia = new javax.swing.JLabel();
+        additionResult = new javax.swing.JLabel();
+        subtractionResult = new javax.swing.JLabel();
+        multiplicationResult = new javax.swing.JLabel();
+        divisionResult = new javax.swing.JLabel();
         Dodaj = new javax.swing.JButton();
         Odejmij = new javax.swing.JButton();
         Pomnóż = new javax.swing.JButton();
@@ -44,11 +47,11 @@ public class SimpleCalculator_JF extends javax.swing.JFrame {
 
         Tytul.setText("Prosty kalkulator");
 
-        PierwLiczba.setText("Pierwsza liczba");
+        PierwLiczba.setText("Pierwsza liczba(a)");
 
-        DrugaLiczba.setText("Druga liczba");
+        DrugaLiczba.setText("Druga liczba(b)");
 
-        TrzeciaLiczba.setText("Trzecia liczba");
+        TrzeciaLiczba.setText("Trzecia liczba(c)");
 
         liczbaTxt_1.setBackground(new java.awt.Color(51, 255, 51));
 
@@ -71,7 +74,7 @@ public class SimpleCalculator_JF extends javax.swing.JFrame {
 
         Text_4.setText("Dzielenie (a / b): ");
 
-        WynDodawania.setBackground(new java.awt.Color(51, 204, 0));
+        additionResult.setBackground(new java.awt.Color(51, 204, 0));
 
         Dodaj.setText("Dodaj");
         Dodaj.addActionListener(new java.awt.event.ActionListener() {
@@ -130,10 +133,10 @@ public class SimpleCalculator_JF extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addComponent(WynDodawania, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
-                            .addComponent(WynOdejmowania, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(WynMnozenia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(WynDzielenia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(additionResult, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
+                            .addComponent(subtractionResult, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(multiplicationResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(divisionResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Odejmij)
@@ -163,7 +166,7 @@ public class SimpleCalculator_JF extends javax.swing.JFrame {
                 .addComponent(Text_0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(WynDodawania)
+                        .addComponent(additionResult)
                         .addComponent(Dodaj))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
@@ -172,17 +175,17 @@ public class SimpleCalculator_JF extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Odejmij)
                     .addComponent(Text_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(WynOdejmowania))
+                    .addComponent(subtractionResult))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Pomnóż)
                     .addComponent(Text_3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(WynMnozenia, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(multiplicationResult, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Podziel)
                     .addComponent(Text_4)
-                    .addComponent(WynDzielenia, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(divisionResult, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -191,110 +194,82 @@ public class SimpleCalculator_JF extends javax.swing.JFrame {
     }//GEN-LAST:event_liczbaTxt_3ActionPerformed
 
     private void DodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodajActionPerformed
-       String zwroconyWynik = dodajLiczby(liczbaTxt_1.getText(), 
-                                          liczbaTxt_2.getText(), 
-                                          liczbaTxt_3.getText());
-               WynDodawania.setText(zwroconyWynik);
+        String addition = additionNumbers(liczbaTxt_1.getText(),
+                liczbaTxt_2.getText(),
+                liczbaTxt_3.getText());
+        additionResult.setText(addition);
     }//GEN-LAST:event_DodajActionPerformed
 
     private void OdejmijActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OdejmijActionPerformed
-       String zwroconyWynik = odejmijLiczby(liczbaTxt_1.getText(), 
-                                          liczbaTxt_2.getText(), 
-                                          liczbaTxt_3.getText());
-               WynOdejmowania.setText(zwroconyWynik);
+        String subtraction = subtractionNumbers(liczbaTxt_1.getText(),
+                liczbaTxt_2.getText(),
+                liczbaTxt_3.getText());
+        subtractionResult.setText(subtraction);
     }//GEN-LAST:event_OdejmijActionPerformed
 
     private void PomnóżActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PomnóżActionPerformed
-           String zwroconyWynik = pomnozLiczby(liczbaTxt_1.getText(), 
-                                          liczbaTxt_2.getText(), 
-                                          liczbaTxt_3.getText());
-               WynMnozenia.setText(zwroconyWynik);
+        String multiplication = multiplicationNumbers(liczbaTxt_1.getText(),
+                liczbaTxt_2.getText(),
+                liczbaTxt_3.getText());
+        multiplicationResult.setText(multiplication);
     }//GEN-LAST:event_PomnóżActionPerformed
 
     private void PodzielActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PodzielActionPerformed
-        String zwroconyWynik = podzielLiczby(liczbaTxt_1.getText(), 
-                                          liczbaTxt_2.getText(), 
-                                          liczbaTxt_3.getText());
-               WynDzielenia.setText(zwroconyWynik);
+        String division = divisionNumbers(liczbaTxt_1.getText(), liczbaTxt_2.getText());
+        divisionResult.setText(division);
     }//GEN-LAST:event_PodzielActionPerformed
-// dodawania
-    private void dodajLiczby(java.awt.event.ActionEvent evt) {
-        String zwroconyWynik = dodajLiczby(liczbaTxt_1.getText(), liczbaTxt_2.getText(), liczbaTxt_3.getText());
-        WynDodawania.setText(zwroconyWynik);
-    }
-        
-    private String dodajLiczby(String liczba1, String liczba2, String liczba3) {
-        String wynikDodawaniaStr = null;
+
+    private String additionNumbers(String liczba1, String liczba2, String liczba3) {
         try {
-            int l1 = Integer.valueOf(liczba1);
-            int l2 = Integer.valueOf(liczba2);
-            int l3 = Integer.valueOf(liczba3);
-            int WynDodawania = l1 + l2 + l3;
-            wynikDodawaniaStr = String.valueOf(WynDodawania);
+            BigDecimal l1 = new BigDecimal(liczba1);
+            BigDecimal l2 = new BigDecimal(liczba2);
+            BigDecimal l3 = new BigDecimal(liczba3);
+            BigDecimal wynik = l1.add(l2).add(l3);
+            return wynik.toString();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Tyllko liczby całkowite");
+            JOptionPane.showMessageDialog(rootPane, "Nie prawidłowy format liczby");
         }
-        return wynikDodawaniaStr;
-    }
-// odejmowanie
-    private void odejmijLiczby(java.awt.event.ActionEvent evt) {
-        String zwroconyWynik = odejmijLiczby(liczbaTxt_1.getText(), liczbaTxt_2.getText(), liczbaTxt_3.getText());
-        WynOdejmowania.setText(zwroconyWynik);
-    }
-    
-    private String odejmijLiczby(String liczba1, String liczba2, String liczba3){
-        String wynikOdejmowaniaStr = null;
-        try {
-            int l1 = Integer.valueOf(liczba1);
-            int l2 = Integer.valueOf(liczba2);
-            int l3 = Integer.valueOf(liczba3);
-            int WynikOdejmowania = l1 - l2 - l3;
-            wynikOdejmowaniaStr = String.valueOf(WynikOdejmowania);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Tyllko liczby całkowite");
-        }
-        return wynikOdejmowaniaStr;
-    }
-// mnozenie
-    private void pomnozLiczby(java.awt.event.ActionEvent evt) {
-        String zwroconyWynik = pomnozLiczby(liczbaTxt_1.getText(), liczbaTxt_2.getText(), liczbaTxt_3.getText());
-        WynMnozenia.setText(zwroconyWynik);
-    }
-    
-    private String pomnozLiczby(String liczba1, String liczba2, String liczba3){
-        String wynikMnozeniaStr = null;
-        try {
-            int l1 = Integer.valueOf(liczba1);
-            int l2 = Integer.valueOf(liczba2);
-            int l3 = Integer.valueOf(liczba3);
-            int WynikMnozenia = l1 * l2 * l3;
-            wynikMnozeniaStr = String.valueOf(WynikMnozenia);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Tyllko liczby całkowite");
-        }
-        return wynikMnozeniaStr;
+        return "";
     }
 
-// dzielenie
-    private void podzielLiczby(java.awt.event.ActionEvent evt) {
-        String zwroconyWynik = podzielLiczby(liczbaTxt_1.getText(), liczbaTxt_2.getText(), liczbaTxt_3.getText());
-        WynDzielenia.setText(zwroconyWynik);
-    }
-    
-    private String podzielLiczby(String liczba1, String liczba2, String liczba3){
-        String wynikDzieleniaStr = null;
+    private String subtractionNumbers(String liczba1, String liczba2, String liczba3) {
         try {
-            int l1 = Integer.valueOf(liczba1);
-            int l2 = Integer.valueOf(liczba2);
-            double WynikDzielenia = l1 / l2;
-            wynikDzieleniaStr = String.valueOf(WynikDzielenia);
+            BigDecimal l1 = new BigDecimal(liczba1);
+            BigDecimal l2 = new BigDecimal(liczba2);
+            BigDecimal l3 = new BigDecimal(liczba3);
+            BigDecimal wynik = l1.subtract(l2).subtract(l3);
+            return wynik.toString();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Tyllko liczby całkowite");
+            JOptionPane.showMessageDialog(rootPane, "Nie prawidłowy format liczby");
         }
-        return wynikDzieleniaStr;
+        return "";
     }
-    
-    
+
+    private String multiplicationNumbers(String liczba1, String liczba2, String liczba3) {
+        try {
+            BigDecimal l1 = new BigDecimal(liczba1);
+            BigDecimal l2 = new BigDecimal(liczba2);
+            BigDecimal l3 = new BigDecimal(liczba3);
+            BigDecimal wynik = l1.multiply(l2).multiply(l3);
+            return wynik.toString();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Nie prawidłowy format liczby");
+        }
+        return "";
+    }
+
+    private String divisionNumbers(String liczba1, String liczba2) {
+        try {
+            BigDecimal l1 = new BigDecimal(liczba1);
+            BigDecimal l2 = new BigDecimal(liczba2);
+            BigDecimal wynik = l1.divide(l2, 2, RoundingMode.HALF_UP);
+            return wynik.toString();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Nie prawidłowy format liczby");
+        }
+        return "";
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -324,6 +299,7 @@ public class SimpleCalculator_JF extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new SimpleCalculator_JF().setVisible(true);
             }
@@ -344,13 +320,13 @@ public class SimpleCalculator_JF extends javax.swing.JFrame {
     private javax.swing.JLabel Text_4;
     private javax.swing.JLabel TrzeciaLiczba;
     private javax.swing.JLabel Tytul;
-    private javax.swing.JLabel WynDodawania;
-    private javax.swing.JLabel WynDzielenia;
-    private javax.swing.JLabel WynMnozenia;
-    private javax.swing.JLabel WynOdejmowania;
+    private javax.swing.JLabel additionResult;
+    private javax.swing.JLabel divisionResult;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JTextField liczbaTxt_1;
     private javax.swing.JTextField liczbaTxt_2;
     private javax.swing.JTextField liczbaTxt_3;
+    private javax.swing.JLabel multiplicationResult;
+    private javax.swing.JLabel subtractionResult;
     // End of variables declaration//GEN-END:variables
 }

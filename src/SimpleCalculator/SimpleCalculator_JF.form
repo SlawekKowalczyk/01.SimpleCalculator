@@ -59,11 +59,11 @@
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                              <Component id="WynDodawania" pref="70" max="32767" attributes="0"/>
+                              <Component id="additionResult" pref="70" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="WynOdejmowania" alignment="0" max="32767" attributes="0"/>
-                          <Component id="WynMnozenia" max="32767" attributes="0"/>
-                          <Component id="WynDzielenia" max="32767" attributes="0"/>
+                          <Component id="subtractionResult" alignment="0" max="32767" attributes="0"/>
+                          <Component id="multiplicationResult" max="32767" attributes="0"/>
+                          <Component id="divisionResult" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -102,7 +102,7 @@
               <Component id="Text_0" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="WynDodawania" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="additionResult" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Dodaj" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -114,19 +114,19 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Odejmij" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Text_2" alignment="3" max="32767" attributes="0"/>
-                  <Component id="WynOdejmowania" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="subtractionResult" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Pomnóż" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Text_3" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="WynMnozenia" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="multiplicationResult" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Podziel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Text_4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="WynDzielenia" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                  <Component id="divisionResult" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -140,17 +140,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="PierwLiczba">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Pierwsza liczba"/>
+        <Property name="text" type="java.lang.String" value="Pierwsza liczba(a)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="DrugaLiczba">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Druga liczba"/>
+        <Property name="text" type="java.lang.String" value="Druga liczba(b)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="TrzeciaLiczba">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Trzecia liczba"/>
+        <Property name="text" type="java.lang.String" value="Trzecia liczba(c)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="liczbaTxt_1">
@@ -202,18 +202,18 @@
         <Property name="text" type="java.lang.String" value="Dzielenie (a / b): "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="WynDodawania">
+    <Component class="javax.swing.JLabel" name="additionResult">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="cc" red="33" type="rgb"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="WynOdejmowania">
+    <Component class="javax.swing.JLabel" name="subtractionResult">
     </Component>
-    <Component class="javax.swing.JLabel" name="WynMnozenia">
+    <Component class="javax.swing.JLabel" name="multiplicationResult">
     </Component>
-    <Component class="javax.swing.JLabel" name="WynDzielenia">
+    <Component class="javax.swing.JLabel" name="divisionResult">
     </Component>
     <Component class="javax.swing.JButton" name="Dodaj">
       <Properties>
