@@ -1,4 +1,4 @@
-package SimpleCalculator;
+package main.java.SimpleCalculator;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
